@@ -2,20 +2,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Solution {
+public class FrequencyDictionary {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        // TODO: Read a single line of text
-        
-        // TODO: Split the text into individual words
-        
-        // TODO: Create a HashMap to store the frequency of each word
-        
-        // TODO: Iterate through the words and update their frequencies in the map
-        
-        // TODO: Iterate through the map and print the unique words and their counts
-        // Format: "word: count"
-        
+
+        if (scanner.hasNextLine()) {
+            String text = scanner.nextLine();
+            String[] words = text.split("\\s+");
+
+            HashMap<String, Integer> wordCounts = new HashMap<>();
+
+            for (String word : words) {
+                if (!word.isEmpty()) {
+                    wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
+                }
+            }
+
+            for (Map.Entry<String, Integer> entry : wordCounts.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+        }
+
+        scanner.close();
     }
 }
